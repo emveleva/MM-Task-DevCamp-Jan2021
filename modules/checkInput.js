@@ -2,7 +2,7 @@
 function checkFirstLayer(m, firstLayer) {
     // checks line length
     let firstLayerIsOk = true;
-    for (let i = 0; i < firstLayer.leigth; i++) {
+    for (let i = 0; i < firstLayer.length; i++) {
         if (firstLayer[i].length !== m) {
             firstLayerIsOk = false;
             console.log('Line length is not correct.'.red);
@@ -10,7 +10,6 @@ function checkFirstLayer(m, firstLayer) {
             return;
         }
     }
-
     // checks if input includes NaN
     for (let i = 0; i < firstLayer.length; i++) {
         if (firstLayer[i].includes(NaN)) {
@@ -25,9 +24,9 @@ function checkFirstLayer(m, firstLayer) {
     let testingLayer = firstLayer.flat();
     for (let i = 0; i < testingLayer.length; i++) {
         let checkLength = testingLayer.filter(item => item === testingLayer[i]).length;
-        if (checkLength > 2) {
+        if (checkLength !== 2) {
             firstLayerIsOk = false;
-            console.log('The same brick is used more than once.'.red);
+            console.log('Wrong brick number used. Each brick consists of two identical numbers.'.red);
             console.log('Please try again.'.blue);
             return;
         }
